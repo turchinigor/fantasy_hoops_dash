@@ -1,2 +1,0 @@
-yahoo_oauth
-python-dotenv

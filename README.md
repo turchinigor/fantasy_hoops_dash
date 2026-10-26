@@ -52,6 +52,38 @@ It reads data from my league through the official [Yahoo Fantasy Sports API](htt
 - Local storage
 - Dashboard layer (to be decided)
 
+## Project structure
+
+```
+src/fantasy_hoops_dash/
+    config.py    paths and credentials (.env)
+    auth.py      Yahoo OAuth 2.0 login, token storage and refresh
+    client.py    read-only Yahoo Fantasy API client
+    cli.py       command line entry point
+tests/           unit tests
+```
+
+## Setup
+
+Requires Python 3.12+.
+
+```bash
+python -m venv .venv            # or any venv location
+.venv\Scripts\activate          # Windows
+pip install -e ".[dev]"
+copy .env.example .env          # then fill in your Yahoo app credentials
+```
+
+## Usage
+
+```bash
+python -m fantasy_hoops_dash login     # one time: approve in the browser, paste the code
+python -m fantasy_hoops_dash leagues   # list your NBA leagues
+pytest                                 # run tests
+```
+
+The login token is saved in `.secrets/` and refreshed automatically.
+
 ## Security
 
 API credentials, tokens and `.env` files are never committed to this repository.

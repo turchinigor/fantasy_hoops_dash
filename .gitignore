@@ -2,6 +2,7 @@
 .env
 .env.*
 !.env.example
+.secrets/
 oauth2.json
 secrets.json
 *token*.json
